@@ -1,0 +1,30 @@
+.scroll-up {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: orangered;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    padding: 8px 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+  }
+  
+  .scroll-up:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-170px * 6));
+    }
+  }
+  
+  

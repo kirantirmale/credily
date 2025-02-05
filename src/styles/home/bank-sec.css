@@ -1,0 +1,79 @@
+.banks-section {
+  background-color: #ddd3d33b;
+  padding: 5.3rem 0;
+}
+
+.banks-container__title {
+  margin: 0 auto;
+  text-align: center;
+  color: #010103;
+}
+
+.banks-container__title h3 {
+  font-size: 2.2rem;
+  font-family: "Roboto", sans-serif;
+  color: orangered;
+  border-bottom: 1px solid orangered;
+  display: inline-block;
+}
+
+.banks-container__title h2 {
+  font-size: 4.2rem;
+  font-family: "Roboto", sans-serif;
+  margin: 1.3rem 0 3rem 0;
+  color: #333;
+}
+
+.bank-cards-wrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.bank-cards-container {
+  display: flex;
+  gap: 20px;
+  animation: scroll 15s linear infinite;
+}
+
+.bank-card {
+  flex: 0 0 auto;
+  width: 250px;
+  height: 150px;
+  background: #f9f9f9;
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bank-card:hover {
+  box-shadow: 0 8px 15px rgba(255, 166, 0, 0.236);
+}
+
+.bank-card img {
+  width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.bank-card p {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  text-align: center;
+  margin: 0;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

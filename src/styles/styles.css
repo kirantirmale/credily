@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import 'univercel.css';
+@import 'scrollbar.css';
+@import 'navbar.css';
+@import './footer.css';
+@import './hero-pages.css';
+
+/* ===========home css ================ */
+@import './home/hero.css';
+@import './home/scroll-up.css';
+@import './home/book.css';
+@import './home/bank-sec.css';
+@import './home/brand.css';
+@import './home/vehicle.css';
+@import './home/vehicle-model.css';
+@import './home/banner-section.css';
+@import './home/chooseUs.css';
+@import './home/testimonial.css';
+@import './home/faq.css';
+@import './home/download.css';
+
+/* ===============about css ================= */
+@import './about/about-main.css';
+@import './about/book-banner.css';
+
+/* ===============contact css ================= */
+@import './contact/contact-page.css';
+
+/* ===============team css ================= */
+@import './team/team.css';
+
+
+/* ===============models css ================= */
+@import './models/models.css';
+

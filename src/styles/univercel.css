@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    margin-top: -1px;
+  }
+  
+  html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: #ffffff;
+    font-family: "Poppins", sans-serif;
+    position: relative;
+  }
+  
+  .container {
+    max-width: 133rem !important;
+    margin: 0 auto !important;  
+    padding: 0 2.5rem !important;
+  }
+  
