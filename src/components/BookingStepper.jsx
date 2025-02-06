@@ -1,29 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import { Stepper, Step, StepLabel, Button, Box, Typography, TextField, Grid } from '@mui/material';
-import PersonalInformation from './PersonalInformation';
-import SelectPlan from './SelectPlan';
+import React, { useState, useEffect } from "react";
+import { Stepper, Step, StepLabel, Button, Box, Typography, useMediaQuery } from "@mui/material";
+import PersonalInformation from "./PersonalInformation";
+import SelectPlan from "./SelectPlan";
 
 const BookingStepper = () => {
-  // State for active step
   const [activeStep, setActiveStep] = useState(0);
   const [userData, setUserData] = useState(null);
+  const isMobile = useMediaQuery("(max-width:600px)"); // Detect small screens
 
-  // Steps for the stepper
   const steps = [
     "Personal Information",
     "Select & Compare Plan",
     "Document under Verification",
     "Down Payment",
     "Pick your Car",
-    "Review & Confirm"
+    "Review & Confirm",
   ];
 
   useEffect(() => {
-    const data = JSON.parse(localStorage.getItem('carBookingData'));
+    const data = JSON.parse(localStorage.getItem("carBookingData"));
     if (data) {
-        setUserData(data);
+      setUserData(data);
     }
-}, []);
+  }, []);
 
   const handleNext = () => {
     if (activeStep < steps.length - 1) {
@@ -37,48 +36,22 @@ const BookingStepper = () => {
     }
   };
 
-
   const renderStepContent = (step) => {
     if (!userData) return <Typography>Loading...</Typography>;
 
     switch (step) {
       case 0:
-        return (
-          <>
-          <PersonalInformation userData={userData} />
-          
-          </>
-        );
+        return <PersonalInformation userData={userData} />;
       case 1:
-        return (
-         <>
-         <SelectPlan/>
-         </>
-        );
+        return <SelectPlan />;
       case 2:
-        return (
-          <div>
-
-          </div>
-        );
+        return <Typography variant="h6">Your documents are under verification.</Typography>;
       case 3:
-        return (
-          <div>
-
-          </div>
-        );
+        return <Typography variant="h6">Proceed with the down payment.</Typography>;
       case 4:
-        return (
-          <div>
-
-          </div>
-        );
+        return <Typography variant="h6">Pick your car.</Typography>;
       case 5:
-        return (
-          <div>
-            <Typography variant="h6">Review the details and confirm your booking.</Typography>
-          </div>
-        );
+        return <Typography variant="h6">Review the details and confirm your booking.</Typography>;
       default:
         return null;
     }
@@ -89,40 +62,37 @@ const BookingStepper = () => {
   }
 
   return (
-    <div>
-      <Stepper activeStep={activeStep} alternativeLabel >
-        {steps.map((label, index) => (
-          <Step key={index}  >
-            <StepLabel>{label}</StepLabel>
+    <Box sx={{ width: "100%", p: 1 }}>
+      {/* Stepper */}
+      <Stepper activeStep={activeStep} alternativeLabel={!isMobile} orientation={isMobile ? "vertical" : "horizontal"}>
+        {/* Display only the active step on mobile */}
+        {!isMobile ? (
+          steps.map((label, index) => (
+            <Step key={index}>
+              <StepLabel>{label}</StepLabel>
+            </Step>
+          ))
+        ) : (
+          <Step>
+            <StepLabel>{steps[activeStep]}</StepLabel>
           </Step>
-        ))}
+        )}
       </Stepper>
 
-      <Box sx={{ mt: 2 }}>
+      <Box sx={{ mt: 2, p: 2, textAlign: "center" }}>
         {renderStepContent(activeStep)}
       </Box>
 
-      <Box sx={{ mt: 2 }}>
-        <Button
-          variant="contained"
-          //   color="secondary"
-          onClick={handleBack}
-          disabled={activeStep === 0}
-
-        >
+      {/* Buttons with Responsive Styling */}
+      <Box sx={{ mt: 2, display: "flex", flexDirection: isMobile ? "column" : "row", gap: 2, alignItems: "center", justifyContent: "center" }}>
+        <Button variant="contained" onClick={handleBack} disabled={activeStep === 0} sx={{ width: isMobile ? "100%" : "auto" }}>
           Back
         </Button>
-        <Button
-          variant="contained"
-          //   color="primary"
-          onClick={handleNext}
-          disabled={activeStep === steps.length - 1}
-          sx={{ ml: 2 }}
-        >
+        <Button variant="contained" onClick={handleNext} disabled={activeStep === steps.length - 1} sx={{ width: isMobile ? "100%" : "auto" }}>
           Next
         </Button>
       </Box>
-    </div>
+    </Box>
   );
 };
 

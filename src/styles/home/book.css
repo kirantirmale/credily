@@ -1,7 +1,7 @@
 .book-section {
   position: relative;
   background: linear-gradient(to bottom, #f8f8f8 20%, #ffffff 80%);
-  padding:  8rem 4.5rem;
+  padding:  8rem 0.5rem;
 }
 
 .book-content {
