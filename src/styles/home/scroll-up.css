@@ -8,8 +8,8 @@
     font-size: 2rem;
     padding: 8px 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    
+    transition: background-color 0.3s ease;    
+    z-index: 1000000;
   }
   
   .scroll-up:hover {

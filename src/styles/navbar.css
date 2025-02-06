@@ -6,7 +6,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    /* padding: 1rem 2rem; */
     top: 0;
     left: 0;
     right: 0;
@@ -15,7 +15,7 @@
   }
   .navbar {
     position: relative;
-    padding: 10px 16px;
+    padding: 7px 16px;
     color: black;
     transition: top 0.3s;
   }
@@ -163,4 +163,10 @@
   
   .open-nav {
     left: 0;
+  }
+
+
+  .profile-avatar{
+    /* width: 50px; */
+    border-radius: 30px;
   }
