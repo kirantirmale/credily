@@ -58,7 +58,7 @@ function Hero() {
 
         <div className="hero-content">
           <span>
-            Drive Your <span className="dreme"> Dream</span> Car.
+            Drive Your <span className="dreme"> Dream</span> Car..
           </span>
         </div>
 
