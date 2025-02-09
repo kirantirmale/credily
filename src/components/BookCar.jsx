@@ -40,8 +40,8 @@ function BookCar() {
     const savedMobileNumber = localStorage.getItem("carBookingData");
 
     if (savedMobileNumber) {
-      setMobile(savedMobileNumber); 
-      setIsAuthenticated(true); 
+      setMobile(savedMobileNumber);
+      setIsAuthenticated(true);
     }
   }, []);
 
@@ -49,7 +49,7 @@ function BookCar() {
   const handleHereWeGo = (e) => {
     e.preventDefault();
     if (!agreeTerms) return;
-    setShowOtpModal(true); 
+    setShowOtpModal(true);
   };
 
   const handleOtpSubmit = () => {
@@ -68,12 +68,12 @@ function BookCar() {
         companyName,
         estimatedAmount,
       };
-  
+
       // Store data in localStorage
       localStorage.setItem("carBookingData", JSON.stringify(formData));
-  
-      
-      
+
+
+
       setNationalId("");
       setMonth("");
       setYear("");
@@ -88,15 +88,15 @@ function BookCar() {
       setEstimatedAmount([0, 100000]);
       setAgreeTerms(false);
       setOtp("");
-      
-      setShowOtpModal(false); 
-      setIsAuthenticated(true);  
-      window.location.reload();  
+
+      setShowOtpModal(false);
+      setIsAuthenticated(true);
+      window.location.reload();
     } else {
       alert("Incorrect OTP. Please try again.");
     }
   };
-  
+
   const openModal = (e) => {
     e.preventDefault();
 
@@ -166,7 +166,7 @@ function BookCar() {
   };
 
   const { yearOptions, monthOptions } = getYearAndMonthOptions();
-  
+
   return (
     <>
       <section id="booking-section" className="book-section">
@@ -437,12 +437,52 @@ function BookCar() {
       </section>
 
       <Modal open={showOtpModal} onClose={() => setShowOtpModal(false)}>
-        <Box className="otp-modal" sx={{ padding: 4, background: "white", width: 300, margin: "auto", marginTop: "20vh", textAlign: "center", borderRadius: "8px" }}>
-          <Typography variant="h6">Enter OTP</Typography>
-          <TextField value={otp} onChange={(e) => setOtp(e.target.value)} fullWidth required margin="normal" />
-          <Button variant="contained" color="primary" onClick={handleOtpSubmit}>Submit</Button>
+        <Box
+          sx={{
+            padding: 4,
+            backgroundColor: "white",
+            width: 350,
+            margin: "auto",
+            marginTop: "15vh",
+            textAlign: "center",
+            borderRadius: "12px",
+            boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)"
+          }}
+        >
+          <Typography variant="h5" sx={{ marginBottom: 2, color: "#333" }}>
+            Verify Your Phone
+          </Typography>
+          <TextField
+            value={otp}
+            onChange={(e) => setOtp(e.target.value)}
+            fullWidth
+            required
+            margin="normal"
+            inputProps={{
+              style: {
+                textAlign: "center",
+                fontSize: "1.2rem",
+                letterSpacing: "0.2rem"
+              }
+            }}
+            sx={{ marginBottom: 3 }}
+          />
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleOtpSubmit}
+            sx={{
+              paddingY: 1.5,
+              borderRadius: "8px",
+              backgroundColor: "#4caf50",
+              "&:hover": { backgroundColor: "#43a047" }
+            }}
+          >
+            Submit
+          </Button>
         </Box>
       </Modal>
+
     </>
   );
 }

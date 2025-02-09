@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Card, CardContent, Typography, Box, CardMedia, Checkbox, FormControlLabel } from '@mui/material';
+import { Card, CardContent, Typography, Box, CardMedia, Button } from '@mui/material';
 import snb from '../images/bank/SNBLogo.png';
 import alrajhibanklogo from '../images/bank/alrajhibanklogo.png';
 import riyadhbankpng from '../images/bank/riyadhbankpng.png';
@@ -34,8 +34,8 @@ const SelectPlan = () => {
   return (
     <Box display="flex" flexWrap="wrap" justifyContent="center" gap={2} mt={4}>
       {plans.map((plan) => (
-        <Card key={plan.id} sx={{ width: 300, textAlign: 'center', border: selectedPlan?.id === plan.id ? '2px solid blue' : 'none' }}>
-          <CardMedia component="img"sx={{ height: 70, objectFit: 'contain' }} image={plan.image} alt={plan.name} />
+        <Card key={plan.id} sx={{ width: 300, textAlign: 'center', border: selectedPlan?.id === plan.id ? '2px solid orange' : 'none' }}>
+          <CardMedia component="img" sx={{ height: 70, objectFit: 'contain' }} image={plan.image} alt={plan.name} />
           <CardContent>
             <Typography variant="h6">{plan.name}</Typography>
             <Typography variant="subtitle1" color="text.secondary">
@@ -44,10 +44,23 @@ const SelectPlan = () => {
             <Typography variant="body2">APR: {plan.apr}</Typography>
             <Typography variant="body2">Monthly Installment: {plan.installment}</Typography>
             <Typography variant="body2">Residual Value: {plan.residual}</Typography>
-            <FormControlLabel
-              control={<Checkbox checked={selectedPlan?.id === plan.id} onChange={() => handleSelect(plan)} />}
-              label="Select"
-            />
+            <Button 
+              onClick={() => handleSelect(plan)}
+              style={{
+                background: 'linear-gradient(to right, #8E2DE2, #4A00E0)',
+                color: 'white',
+                padding: '2px 12px',
+                borderRadius: '50px',
+                fontWeight: '600',
+                textTransform: 'capitalize',
+                transition: 'all 0.3s ease',
+                marginTop: '10px'
+              }}
+              onMouseOver={(e) => e.target.style.boxShadow = '0px 0px 15px rgba(0, 0, 0, 0.3)'}
+              onMouseOut={(e) => e.target.style.boxShadow = 'none'}
+            >
+              Select
+            </Button>
           </CardContent>
         </Card>
       ))}

@@ -84,14 +84,47 @@ const BookingStepper = () => {
       </Box>
 
       {/* Buttons with Responsive Styling */}
-      <Box sx={{ mt: 2, display: "flex", flexDirection: isMobile ? "column" : "row", gap: 2, alignItems: "center", justifyContent: "center" }}>
-        <Button variant="contained" onClick={handleBack} disabled={activeStep === 0} sx={{ width: isMobile ? "100%" : "auto" }}>
+
+      <Box  sx={{ mt: 1, display: "flex", flexDirection: isMobile ? "row" : "row", gap: 2, alignItems: "center",justifyContent: "space-between" }}>
+      <Box sx={{ mt: 2, display: "flex", flexDirection: isMobile ? "column" : "row", gap: 2, }}>
+        <Button variant="contained" onClick={handleBack} disabled={activeStep === 0} sx={{ width: isMobile ? "100%" : "auto" }}
+          style={{
+            // background: 'linear-gradient(to right, #8E2DE2, #4A00E0)',
+            color: 'white',
+            padding: '2px 12px',
+            borderRadius: '50px',
+            fontWeight: '600',
+            textTransform: 'capitalize',
+            transition: 'all 0.3s ease',
+            marginTop: '10px'
+          }}
+          onMouseOver={(e) => e.target.style.boxShadow = '0px 0px 15px rgba(0, 0, 0, 0.3)'}
+          onMouseOut={(e) => e.target.style.boxShadow = 'none'}>
           Back
         </Button>
-        <Button variant="contained" onClick={handleNext} disabled={activeStep === steps.length - 1} sx={{ width: isMobile ? "100%" : "auto" }}>
+      </Box>
+      <Box sx={{ mt: 2, display: "flex", flexDirection: isMobile ? "column" : "row", gap: 2 ,alignItems: "center" ,justifyContent: "center" }}>
+
+
+      <Button variant="contained" onClick={handleNext} disabled={activeStep === steps.length - 1} sx={{ width: isMobile ? "100%" : "auto" }}
+          style={{
+            // background: 'linear-gradient(to right, #8E2DE2, #4A00E0)',
+            color: 'white',
+            padding: '2px 12px',
+            borderRadius: '50px',
+            fontWeight: '600',
+            textTransform: 'capitalize',
+            transition: 'all 0.3s ease',
+            marginTop: '10px'
+          }}
+          onMouseOver={(e) => e.target.style.boxShadow = '0px 0px 15px rgba(0, 0, 0, 0.3)'}
+          onMouseOut={(e) => e.target.style.boxShadow = 'none'}
+        >
           Next
         </Button>
       </Box>
+      </Box>
+        
     </Box>
   );
 };
