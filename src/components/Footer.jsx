@@ -35,7 +35,7 @@ function Footer() {
                   rel="noreferrer"
                   href="https://devrahuls.vercel.app/"
                 >
-                  Design with ❤️ by Rahul
+                  Design with ❤️ by Kiran
                 </a>
               </li>
             </ul>
